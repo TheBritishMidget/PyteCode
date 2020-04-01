@@ -3,8 +3,9 @@ local_variables = []
 
 instruction = ""
 
-def check(instruction):
-    instrct = instruction.lower()
+
+def check(instrct):
+    instrct = instrct.lower()
     if instrct == "iconst_m1":
         stack.append(-1)
     if instrct == "iconst_0":
@@ -20,10 +21,9 @@ def check(instruction):
     if instrct == "iconst_5":
         stack.append(5)
 
+
 while True:
     instruction = input("Enter Instruction: ")
     check(instruction)
     print(f"stack = {stack}")
     print(f"localvariables = {local_variables}")
-
-
