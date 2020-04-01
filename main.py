@@ -7,19 +7,19 @@ instruction = ""
 def check(instrct):
     instrct = instrct.lower()
     if instrct == "iconst_m1":
-        stack.append(-1)
+        stack.insert(0, -1)
     if instrct == "iconst_0":
-        stack.append(0)
+        stack.insert(0, 0)
     if instrct == "iconst_1":
-        stack.append(1)
+        stack.insert(0, 1)
     if instrct == "iconst_2":
-        stack.append(2)
+        stack.insert(0, 2)
     if instrct == "iconst_3":
-        stack.append(3)
+        stack.insert(0, 3)
     if instrct == "iconst_4":
-        stack.append(4)
+        stack.insert(0, 4)
     if instrct == "iconst_5":
-        stack.append(5)
+        stack.insert(0, 5)
 
 
 while True:
