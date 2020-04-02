@@ -28,6 +28,32 @@ def check(instrct):
     if instrct == "pop2":
         stack.pop(0)
         stack.pop(0)
+    if instrct == "aload_0":
+    	stack.insert(0, local_variables[0])
+    if instrct == "aload_1":
+    	stack.insert(0, local_variables[1])
+    if instrct == "aload_2":
+    	stack.insert(0, local_variables[2])
+    if instrct == "aload_3":
+    	stack.insert(0, local_variables[3])
+    if instrct == "swap":
+        stack[0], stack[1] = stack[1], stack[0]
+    if instrct == "dup":
+    	stack.insert(0, stack[0])
+    if instrct == "dup_x1":
+    	stack.insert(2, stack[0])
+    if instrct == "dup_x2":
+    	stack.insert(3, stack[0])
+    if instrct == "dup2":
+    	stack.insert(0, stack[1])
+    	stack.insert(0, stack[1])
+    if instrct == "dup2_x1":
+    	stack.insert(3, stack[0])
+    	stack.insert(4, stack[1])
+    if instrct == "dup2_x2":
+    	stack.insert(4, stack[0])
+    	stack.insert(5, stack[1])	
+    	    
 
 
 while True:
