@@ -13,6 +13,8 @@ def check(instrct):
             if instrct.endswith("_m1"):
                 stack.insert(0, -1)
     '''
+    if instrct == "iconst_m1":
+        stack.insert(0, -1)
     if instrct == "iconst_0":
         stack.insert(0, 0)
     if instrct == "iconst_1":
