@@ -81,11 +81,34 @@ def check(instrct):
         stack.insert(0, local_variables[2])
     elif instrct[0] == "iload_3":
         stack.insert(0, local_variables[3])
+    elif instrct[0] == "iadd":
+        result = stack[0] + stack[1]
+        stack.pop(0)
+        stack.pop(0)
+        stack.insert(0, result)
     elif instrct[0] == "isub":
         result = stack[1] - stack[0]
         stack.pop(0)
         stack.pop(0)
         stack.insert(0, result)
+    elif instrct[0] == "imul":
+        result = stack[0] * stack[1]
+        stack.pop(0)
+        stack.pop(0)
+        stack.insert(0, result)
+    elif instrct[0] == "idiv":
+        result = stack[1] / stack[0]
+        stack.pop(0)
+        stack.pop(0)
+        stack.insert(0, result)
+    elif instrct[0] == "irem":
+        result = stack[1] % stack[0]
+        stack.pop(0)
+        stack.pop(0)
+        stack.insert(0, result)
+    elif instrct[0] == "ineg":
+        stack.insert(0, stack[0] * -1)
+        stack.pop(1)
     else:
         print("Unknown Instruction")
 
