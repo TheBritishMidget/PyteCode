@@ -1,3 +1,6 @@
+
+# https://en.wikipedia.org/wiki/Java_bytecode_instruction_listings
+
 stack = []
 local_variables = []
 
