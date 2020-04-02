@@ -118,7 +118,7 @@ def check(instrct):
         stack.pop(0)
         stack.insert(0, result)
     elif instrct[0] == "ineg":
-        stack.insert(0, stack[0] * -1)
+        stack.insert(0, -stack[0])
         stack.pop(1)
     else:
         print("Unknown Instruction")
