@@ -5,6 +5,11 @@ local_variables = []
 
 instruction = ""
 
+def expand(a_list, index, value, empty=None):
+    l = len(a_list)
+    if index >= l:
+        a_list.extend([empty]*(index + 1 - l))
+    a_list[index] = value
 
 def check(instrct):
     instrct = instrct.lower()
@@ -56,15 +61,15 @@ def check(instrct):
         stack.insert(4, stack[0])
         stack.insert(5, stack[1])
     elif instrct[0] == "istore":
-        local_variables.insert(int(instrct[1]), stack[0])
+        expand(local_variables, instrct[1], stack[0])
     elif instrct[0] == "istore_0":
-        local_variables.insert(0, stack[0])
+        local_variables[0] = stack[0]
     elif instrct[0] == "istore_1":
-        local_variables.insert(1, stack[0])
+        expand(local_variables, 1, stack[0])
     elif instrct[0] == "istore_2":
-        local_variables.insert(2, stack[0])
+        expand(local_variables, 2, stack[0])
     elif instrct[0] == "istore_3":
-        local_variables.insert(3, stack[0])
+        expand(local_variables, 3, stack[0])
     elif instrct[0] == "isub":
         result = stack[1] - stack[0]
         stack.pop(0)
@@ -80,3 +85,5 @@ while True:
     check(instruction)
     print(f"stack = {stack}")
     print(f"localvariables = {local_variables}")
+
+
