@@ -1,4 +1,5 @@
 # https://en.wikipedia.org/wiki/Java_bytecode_instruction_listings
+# http://homepages.inf.ed.ac.uk/kwxm/JVM/codeByNm.html
 
 stack = []
 local_variables = []
@@ -52,6 +53,7 @@ def check(instrct):
     if instrct == "dup2_x2":
         stack.insert(4, stack[0])
         stack.insert(5, stack[1])
+
 
 while True:
     instruction = input("Enter Instruction: ")
