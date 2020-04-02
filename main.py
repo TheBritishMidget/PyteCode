@@ -71,6 +71,16 @@ def check(instrct):
         expand(local_variables, 2, stack[0])
     elif instrct[0] == "istore_3":
         expand(local_variables, 3, stack[0])
+    elif instrct[0] == "iload":
+        stack.insert(0, local_variables[instrct[1]])
+    elif instrct[0] == "iload_0":
+        stack.insert(0, local_variables[0])
+    elif instrct[0] == "iload_1":
+        stack.insert(0, local_variables[1])
+    elif instrct[0] == "iload_2":
+        stack.insert(0, local_variables[2])
+    elif instrct[0] == "iload_3":
+        stack.insert(0, local_variables[3])
     elif instrct[0] == "isub":
         result = stack[1] - stack[0]
         stack.pop(0)
