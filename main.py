@@ -70,6 +70,8 @@ def check(instrct):
         stack.pop(0)
         stack.pop(0)
         stack.insert(0, result)
+    else:
+        print("Unknown Instruction")
 
 
 
