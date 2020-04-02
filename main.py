@@ -1,4 +1,5 @@
 # https://en.wikipedia.org/wiki/Java_bytecode_instruction_listings
+# http://homepages.inf.ed.ac.uk/kwxm/JVM/codeByNm.html
 
 stack = []
 local_variables = []
@@ -77,6 +78,7 @@ def check(instrct):
         stack.insert(0, result)
     else:
         print("Unknown Instruction")
+
 
 
 
