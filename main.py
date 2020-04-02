@@ -20,6 +20,11 @@ def check(instrct):
         stack.insert(0, 4)
     if instrct == "iconst_5":
         stack.insert(0, 5)
+    if instrct == "pop":
+        stack.pop(0)
+    if instrct == "pop2":
+        stack.pop(0)
+        stack.pop(0)
 
 
 while True:
