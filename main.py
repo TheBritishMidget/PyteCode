@@ -8,11 +8,6 @@ instruction = ""
 
 def check(instrct):
     instrct = instrct.lower()
-    if instrct.find("const") > 0:
-        if instrct.startswith("i"):
-            if instrct.endswith("_m1"):
-                stack.insert(0, -1)
-    '''
     if instrct == "iconst_m1":
         stack.insert(0, -1)
     if instrct == "iconst_0":
@@ -57,8 +52,6 @@ def check(instrct):
     if instrct == "dup2_x2":
         stack.insert(4, stack[0])
         stack.insert(5, stack[1])
-    '''
-
 
 while True:
     instruction = input("Enter Instruction: ")
