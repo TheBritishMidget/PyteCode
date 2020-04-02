@@ -9,50 +9,72 @@ instruction = ""
 
 def check(instrct):
     instrct = instrct.lower()
-    if instrct == "iconst_m1":
+    instrct = instrct.split(" ")
+    if instrct[0] == "iconst_m1":
         stack.insert(0, -1)
-    if instrct == "iconst_0":
+    elif instrct[0] == "iconst_0":
         stack.insert(0, 0)
-    if instrct == "iconst_1":
+    elif instrct[0] == "iconst_1":
         stack.insert(0, 1)
-    if instrct == "iconst_2":
+    elif instrct[0] == "iconst_2":
         stack.insert(0, 2)
-    if instrct == "iconst_3":
+    elif instrct[0] == "iconst_3":
         stack.insert(0, 3)
-    if instrct == "iconst_4":
+    elif instrct[0] == "iconst_4":
         stack.insert(0, 4)
-    if instrct == "iconst_5":
+    elif instrct[0] == "iconst_5":
         stack.insert(0, 5)
-    if instrct == "pop":
+    elif instrct[0] == "pop":
         stack.pop(0)
-    if instrct == "pop2":
+    elif instrct[0] == "pop2":
         stack.pop(0)
         stack.pop(0)
-    if instrct == "aload_0":
+    elif instrct[0] == "aload":
+        stack.insert(0, local_variables[instrct[1]])
+    elif instrct[0] == "aload_0":
         stack.insert(0, local_variables[0])
-    if instrct == "aload_1":
+    elif instrct[0] == "aload_1":
         stack.insert(0, local_variables[1])
-    if instrct == "aload_2":
+    elif instrct[0] == "aload_2":
         stack.insert(0, local_variables[2])
-    if instrct == "aload_3":
+    elif instrct[0] == "aload_3":
         stack.insert(0, local_variables[3])
-    if instrct == "swap":
+    elif instrct[0] == "swap":
         stack[0], stack[1] = stack[1], stack[0]
-    if instrct == "dup":
+    elif instrct[0] == "dup":
         stack.insert(0, stack[0])
-    if instrct == "dup_x1":
+    elif instrct[0] == "dup_x1":
         stack.insert(2, stack[0])
-    if instrct == "dup_x2":
+    elif instrct[0] == "dup_x2":
         stack.insert(3, stack[0])
-    if instrct == "dup2":
+    elif instrct[0] == "dup2":
         stack.insert(0, stack[1])
         stack.insert(0, stack[1])
-    if instrct == "dup2_x1":
+    elif instrct[0] == "dup2_x1":
         stack.insert(3, stack[0])
         stack.insert(4, stack[1])
-    if instrct == "dup2_x2":
+    elif instrct[0] == "dup2_x2":
         stack.insert(4, stack[0])
         stack.insert(5, stack[1])
+    elif instrct[0] == "istore":
+        local_variables.insert(int(instrct[1]), stack[0])
+    elif instrct[0] == "istore_0":
+        local_variables.insert(0, stack[0])
+    elif instrct[0] == "istore_1":
+        local_variables.insert(1, stack[0])
+    elif instrct[0] == "istore_2":
+        local_variables.insert(2, stack[0])
+    elif instrct[0] == "istore_3":
+        local_variables.insert(3, stack[0])
+    elif instrct[0] == "isub":
+        result = stack[1] - stack[0]
+        stack.pop(0)
+        stack.pop(0)
+        stack.insert(0, result)
+    else:
+        print("Unknown Instruction")
+
+
 
 
 while True:
