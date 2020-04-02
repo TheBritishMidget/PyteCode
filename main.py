@@ -6,11 +6,13 @@ local_variables = []
 
 instruction = ""
 
+
 def expand(a_list, index, value, empty=None):
     l = len(a_list)
     if index >= l:
-        a_list.extend([empty]*(index + 1 - l))
+        a_list.extend([empty] * (index + 1 - l))
     a_list[index] = value
+
 
 def check(instrct):
     instrct = instrct.lower()
@@ -35,7 +37,10 @@ def check(instrct):
         stack.pop(0)
         stack.pop(0)
     elif instrct[0] == "aload":
-        stack.insert(0, local_variables[instrct[1]])
+        try:
+            stack.insert(0, local_variables[int(instrct[1])])
+        except IndexError:
+            print("Please provide an index")
     elif instrct[0] == "aload_0":
         stack.insert(0, local_variables[0])
     elif instrct[0] == "aload_1":
@@ -62,7 +67,10 @@ def check(instrct):
         stack.insert(4, stack[0])
         stack.insert(5, stack[1])
     elif instrct[0] == "istore":
-        expand(local_variables, instrct[1], stack[0])
+        try:
+            expand(local_variables, instrct[1], stack[0])
+        except IndexError:
+            print("Please provide an index")
     elif instrct[0] == "istore_0":
         local_variables[0] = stack[0]
     elif instrct[0] == "istore_1":
@@ -72,7 +80,10 @@ def check(instrct):
     elif instrct[0] == "istore_3":
         expand(local_variables, 3, stack[0])
     elif instrct[0] == "iload":
-        stack.insert(0, local_variables[instrct[1]])
+        try:
+            stack.insert(0, local_variables[instrct[1]])
+        except IndexError:
+            print("Please provide an index")
     elif instrct[0] == "iload_0":
         stack.insert(0, local_variables[0])
     elif instrct[0] == "iload_1":
@@ -113,12 +124,8 @@ def check(instrct):
         print("Unknown Instruction")
 
 
-
-
 while True:
     instruction = input("Enter Instruction: ")
     check(instruction)
     print(f"stack = {stack}")
     print(f"localvariables = {local_variables}")
-
-
